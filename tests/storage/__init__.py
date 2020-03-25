@@ -7,7 +7,7 @@ from ert_shared.storage import Entities, Blobs
 
 @pytest.fixture(scope="session")
 def engine():
-    return create_engine("sqlite:///:memory:", echo=True)
+    return create_engine("sqlite:///:memory:", echo=False)
 
 
 @pytest.yield_fixture(scope="session")
