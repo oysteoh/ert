@@ -7,6 +7,7 @@ from ert_shared.storage import connections
 from ert_shared.storage.blob_api import BlobApi
 from ert_shared.storage.rdb_api import RdbApi
 
+from res.enkf.export import MisfitCollector
 
 def _create_ensemble(rdb_api, reference):
     facade = ERT.enkf_facade
@@ -28,6 +29,10 @@ def _extract_and_dump_observations(rdb_api, blob_api):
 
     measured_data = MeasuredData(facade, observation_keys)
     # TODO: Should save all info and info about deactivation
+
+    misfit = MisfitCollector.loadAllMisfitData(ert=ERT.ert, case_name=facade.get_current_case_name())
+    print(misfit)
+
     measured_data.remove_inactive_observations()
     observations = measured_data.data.loc[["OBS", "STD"]]
 
