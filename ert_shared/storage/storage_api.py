@@ -46,6 +46,16 @@ class StorageApi(object):
                 {
                     "name" : "default"
                     "ensemble_ref" : "<ensemble_id>"
+                    "parent" : {
+                        "name" : "<parent_ensemble_name>"
+                        "ensemble_ref" : "<parent_ensemble_id>"
+                    }
+                    "children" : [
+                        {
+                            "name" : "<child_ensemble_name>"
+                            "ensemble_ref" : "<child_ensemble_id>"
+                        }    
+                    ]
                 }
             ]
         }
@@ -216,6 +226,16 @@ class StorageApi(object):
                     "name" : "<realization_idx>"
                     "realization_ref: "<realization_idx>"
                 }
+            ]
+            "parent" : {
+                "name" : "<parent_ensemble_name>"
+                "ensemble_ref" : "<parent_ensemble_id>"
+            }
+            "children" : [
+                {
+                    "name" : "<child_ensemble_name>"
+                    "ensemble_ref" : "<child_ensemble_id>"
+                }    
             ]
             "responses" : [
                 {
