@@ -10,7 +10,9 @@ from sqlalchemy.orm import Session
 
 @pytest.fixture(scope="session")
 def engine():
-    return create_engine("sqlite:///:memory:", echo=False)
+    engine = create_engine("sqlite:///:memory:", echo=False)
+    engine.execute('pragma foreign_keys=on')
+    return engine
 
 
 @pytest.yield_fixture(scope="session")
